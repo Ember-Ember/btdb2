@@ -3,7 +3,6 @@ import pyautogui
 from time import sleep
 import random
 import time
-import keyboard
 
 print(pyautogui.size(), 'Current time:',datetime.today().strftime("%I:%M:%S %p"))
 print(pyautogui.position(), 'Current time:',datetime.today().strftime("%I:%M:%S %p"))
