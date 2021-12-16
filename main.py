@@ -9,7 +9,7 @@ print(pyautogui.position(), 'Current time:',datetime.today().strftime("%I:%M:%S 
 global Battles
 Battles = 0
 Time_started = datetime.today().strftime("\nDay: %j, %I:%M:%S %p")
-Time_started_UNIX_timecode = round((time.time()), 2)
+Time_started_UNIX_timecode = time.time()
 
 def towerplace():
     pixels_moved_down = 0
@@ -65,7 +65,7 @@ def towerplace():
                     if pyautogui.locateOnScreen("defooted.png", confidence=0.8) != None:
                         pyautogui.moveTo(pyautogui.locateOnScreen("chest.png", confidence=0.9))
                         pyautogui.moveTo(pyautogui.locateOnScreen("battle_chest.png", confidence=0.9))
-                        pyautogui.move(280, 0)
+                        pyautogui.move(0, 440)
                         pyautogui.move(random.randrange(-5, 5), random.randrange(-5, 5))
                         pyautogui.leftClick()
                         return
@@ -74,7 +74,7 @@ def towerplace():
                     if pyautogui.locateOnScreen("victree.png", confidence=0.8) != None:
                         pyautogui.moveTo(pyautogui.locateOnScreen("chest.png", confidence=0.9))
                         pyautogui.moveTo(pyautogui.locateOnScreen("battle_chest.png", confidence=0.9))
-                        pyautogui.move(280, 0)
+                        pyautogui.move(0, 440)
                         pyautogui.move(random.randrange(-5, 5), random.randrange(-5, 5))
                         pyautogui.leftClick()
                         return
@@ -100,8 +100,8 @@ def btdb():
         pyautogui.leftClick()
         global Battles
         global Time_started_UNIX_timecode
-        Time_since = round((time.time()), 2) - Time_started_UNIX_timecode
-        print('\nThere have been {0} battles since {1}\n{2} Seconds have passed since starting the script'.format(Battles, Time_started, Time_since))
+        Time_since = time.time() - Time_started_UNIX_timecode
+        print('\nThere have been {0} battles since {1}\n{2} Seconds have passed since starting the script'.format(Battles, Time_started, round(Time_since, 2)))
         Battles += 1
         if pyautogui.locateOnScreen("failed_connect.png", confidence=0.8) != None:
             sleep(random.uniform(0, 2))
@@ -152,7 +152,7 @@ def btdb():
                             if (pyautogui.locateOnScreen("chest.png", confidence=0.8) != None) or (pyautogui.locateOnScreen("battle_chest.png", confidence=0.8) != None):
                                 pyautogui.moveTo(pyautogui.locateOnScreen("chest.png", confidence=0.9))
                                 pyautogui.moveTo(pyautogui.locateOnScreen("battle_chest.png", confidence=0.9))
-                                pyautogui.move(280, 0)
+                                pyautogui.move(0, 440)
                                 pyautogui.move(random.randrange(-5, 5), random.randrange(-5, 5))
                                 pyautogui.leftClick()
                                 return
@@ -160,7 +160,7 @@ def btdb():
                             if (pyautogui.locateOnScreen("chest.png", confidence=0.8) != None) or (pyautogui.locateOnScreen("battle_chest.png", confidence=0.8) != None):
                                 pyautogui.moveTo(pyautogui.locateOnScreen("chest.png", confidence=0.9))
                                 pyautogui.moveTo(pyautogui.locateOnScreen("battle_chest.png", confidence=0.9))
-                                pyautogui.move(280, 0)
+                                pyautogui.move(0, 440)
                                 pyautogui.move(random.randrange(-5, 5), random.randrange(-5, 5))
                                 pyautogui.leftClick()
                                 return
@@ -181,7 +181,7 @@ def btdb():
                                 if (pyautogui.locateOnScreen("chest.png", confidence=0.8) != None) or (pyautogui.locateOnScreen("battle_chest.png", confidence=0.8) != None):
                                     pyautogui.moveTo(pyautogui.locateOnScreen("chest.png", confidence=0.9))
                                     pyautogui.moveTo(pyautogui.locateOnScreen("battle_chest.png", confidence=0.9))
-                                    pyautogui.move(280, 0)
+                                    pyautogui.move(0, 440)
                                     pyautogui.move(random.randrange(-5, 5), random.randrange(-5, 5))
                                     pyautogui.leftClick()
                                     return
@@ -189,7 +189,7 @@ def btdb():
                                 if (pyautogui.locateOnScreen("chest.png", confidence=0.8) != None) or (pyautogui.locateOnScreen("battle_chest.png", confidence=0.8) != None):
                                     pyautogui.moveTo(pyautogui.locateOnScreen("chest.png", confidence=0.9))
                                     pyautogui.moveTo(pyautogui.locateOnScreen("battle_chest.png", confidence=0.9))
-                                    pyautogui.move(280, 0)
+                                    pyautogui.move(0, 440)
                                     pyautogui.move(random.randrange(-5, 5), random.randrange(-5, 5))
                                     pyautogui.leftClick()
                                     return
@@ -224,7 +224,7 @@ def btdb():
                                         if (pyautogui.locateOnScreen("chest.png", confidence=0.8) != None) or (pyautogui.locateOnScreen("battle_chest.png", confidence=0.8) != None):
                                             pyautogui.moveTo(pyautogui.locateOnScreen("chest.png", confidence=0.9))
                                             pyautogui.moveTo(pyautogui.locateOnScreen("battle_chest.png", confidence=0.9))
-                                            pyautogui.move(280, 0)
+                                            pyautogui.move(0, 440)
                                             pyautogui.move(random.randrange(-5, 5), random.randrange(-5, 5))
                                             pyautogui.leftClick()
                                             return
@@ -232,7 +232,7 @@ def btdb():
                                         if (pyautogui.locateOnScreen("chest.png", confidence=0.8) != None) or (pyautogui.locateOnScreen("battle_chest.png", confidence=0.8) != None):
                                             pyautogui.moveTo(pyautogui.locateOnScreen("chest.png", confidence=0.9))
                                             pyautogui.moveTo(pyautogui.locateOnScreen("battle_chest.png", confidence=0.8))
-                                            pyautogui.move(280, 0)
+                                            pyautogui.move(0, 440)
                                             pyautogui.move(random.randrange(-5, 5), random.randrange(-5, 5))
                                             pyautogui.leftClick()
                                             return
@@ -249,7 +249,7 @@ def btdb():
                                                 if (pyautogui.locateOnScreen("chest.png", confidence=0.8) != None) or (pyautogui.locateOnScreen("battle_chest.png", confidence=0.8) != None):
                                                     pyautogui.moveTo(pyautogui.locateOnScreen("chest.png", confidence=0.9))
                                                     pyautogui.moveTo(pyautogui.locateOnScreen("battle_chest.png", confidence=0.9))
-                                                    pyautogui.move(280, 0)
+                                                    pyautogui.move(0, 440)
                                                     pyautogui.move(random.randrange(-5, 5), random.randrange(-5, 5))
                                                     pyautogui.leftClick()
                                                     return
@@ -257,7 +257,7 @@ def btdb():
                                                 if (pyautogui.locateOnScreen("chest.png", confidence=0.8) != None) or (pyautogui.locateOnScreen("battle_chest.png", confidence=0.8) != None):
                                                     pyautogui.moveTo(pyautogui.locateOnScreen("chest.png", confidence=0.9))
                                                     pyautogui.moveTo(pyautogui.locateOnScreen("battle_chest.png", confidence=0.9))
-                                                    pyautogui.move(280, 0)
+                                                    pyautogui.move(0, 440)
                                                     pyautogui.move(random.randrange(-5, 5), random.randrange(-5, 5))
                                                     pyautogui.leftClick()
                                                     return
@@ -272,7 +272,7 @@ def btdb():
                                                         print('Clicked ok button', 'Current time:',datetime.today().strftime("%I:%M:%S %p"))
                                                         pyautogui.moveTo(pyautogui.locateOnScreen("chest.png",confidence=0.9))
                                                         pyautogui.moveTo(pyautogui.locateOnScreen("chest.png",confidence=0.9))
-                                                        pyautogui.move(280, 0)
+                                                        pyautogui.move(0, 440)
                                                         pyautogui.move(random.randrange(-5, 5), random.randrange(-5, 5))
                                                         pyautogui.leftClick()
                                                         sleep(2 + random.uniform(0, 2))
@@ -284,7 +284,6 @@ sleep(2)
 
 try:
     while True:
-        pyautogui.keyDown('a')
         #print('align')
         #sleep(2)
         #print(pyautogui.position())
@@ -297,16 +296,17 @@ try:
         #a = round((time.time()), 2)
         #print(datetime.today().strftime("%I:%M:%S %p"))
         #print(round((time.time() - a), 2))
+        pyautogui.keyDown('a')
         btdb()
         sleep(2 + random.uniform(0, 2))
 
 except KeyboardInterrupt:
     pyautogui.keyUp('a')
-    Time_since = round((time.time()), 2) - Time_started_UNIX_timecode
-    print('\nThere have been {0} battles since {1}\n{2} Seconds have passed since starting the script'.format(Battles, Time_started, Time_since))
+    Time_since = time.time() - Time_started_UNIX_timecode
+    print('\nThere have been {0} battles since {1}\n{2} Seconds have passed since starting the script'.format(Battles, Time_started, round(Time_since, 2)))
     print('KeyBoard interupt detected')
 except pyautogui.FailSafeException:
-    Time_since = round((time.time()), 2) - Time_started_UNIX_timecode
-    print('\nThere have been {0} battles since {1}\n{2} Seconds have passed since starting the script'.format(Battles, Time_started, Time_since))
+    Time_since = time.time() - Time_started_UNIX_timecode
+    print('\nThere have been {0} battles since {1}\n{2} Seconds have passed since starting the script'.format(Battles, Time_started, round(Time_since, 2)))
     print('Pyautogui failsafe detected, Press \'a\'')
 #
