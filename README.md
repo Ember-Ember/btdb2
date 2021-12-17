@@ -8,6 +8,7 @@ Seaches for Certain images on screen and clicks on them, this provides a much mo
 
 I reccomend getting your own screenshots, with the current ones the window size is rather fiddly 
 
+BTDB2 window size reference;
 ![BTDB2 window size reference](https://user-images.githubusercontent.com/48266942/146490979-dc8baca2-36e8-4c92-a215-c47ea0250d39.png)
 
 
