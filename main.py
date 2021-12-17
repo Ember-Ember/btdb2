@@ -25,6 +25,7 @@ def towerplace():
         sleep(0.02 + random.uniform(0, 0.06))
         pyautogui.keyUp('w')
         #print('place attempt left')
+        pyautogui.move(random.randrange(-5, 5), random.randrange(-5, 5))
         pyautogui.leftClick()
         pyautogui.keyDown('esc')
         sleep(0.02 + random.uniform(0, 0.06))
