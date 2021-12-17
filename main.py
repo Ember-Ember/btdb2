@@ -12,6 +12,8 @@ Time_started = datetime.today().strftime("\nDay: %j, %I:%M:%S %p")
 Time_started_UNIX_timecode = time.time()
 
 def towerplace():
+    no_further = pyautogui.locateOnScreen("titleName.png", confidence=0.8).top   #680
+    #Box(left=1533, top=383, width=65, height=53)
     pixels_moved_down = 0
     pixels_moved_right = 0
     start_location = pyautogui.position().x
@@ -45,7 +47,6 @@ def towerplace():
             #pyautogui.keyDown(',')
             #sleep(0.07 + random.uniform(0, 0.05))
             #pyautogui.keyUp(',')
-            pyautogui.moveTo(pyautogui.position().x, return_value)
             pyautogui.keyDown('esc')
             sleep(0.02 + random.uniform(0, 0.06))
             pyautogui.keyUp('esc')
@@ -60,12 +61,15 @@ def towerplace():
             pyautogui.moveTo(pyautogui.position().x, return_value)
             pixels_moved_right += 70 + random_placement_positive_x - random_placement_negative_x
             #print(pixels_moved_right)
+            if pyautogui.position().y > 680 + no_further:
+                pixels_moved_down = 380
+                pixels_moved_right = 910
             if pyautogui.locateOnScreen("defooted.png", confidence=0.8) != None:
                 while True:
                     if pyautogui.locateOnScreen("defooted.png", confidence=0.8) != None:
                         pyautogui.moveTo(pyautogui.locateOnScreen("chest.png", confidence=0.9))
                         pyautogui.moveTo(pyautogui.locateOnScreen("battle_chest.png", confidence=0.9))
-                        pyautogui.move(0, 440)
+                        pyautogui.move(0, 440, 6 + random.uniform(0, 3))
                         pyautogui.move(random.randrange(-5, 5), random.randrange(-5, 5))
                         pyautogui.leftClick()
                         return
@@ -74,7 +78,7 @@ def towerplace():
                     if pyautogui.locateOnScreen("victree.png", confidence=0.8) != None:
                         pyautogui.moveTo(pyautogui.locateOnScreen("chest.png", confidence=0.9))
                         pyautogui.moveTo(pyautogui.locateOnScreen("battle_chest.png", confidence=0.9))
-                        pyautogui.move(0, 440)
+                        pyautogui.move(0, 440, 6 + random.uniform(0, 3))
                         pyautogui.move(random.randrange(-5, 5), random.randrange(-5, 5))
                         pyautogui.leftClick()
                         return
@@ -103,9 +107,10 @@ def btdb():
         Time_since = time.time() - Time_started_UNIX_timecode
         print('\nThere have been {0} battles since {1}\n{2} Seconds have passed since starting the script'.format(Battles, Time_started, round(Time_since, 2)))
         Battles += 1
-        if pyautogui.locateOnScreen("failed_connect.png", confidence=0.8) != None:
+        if (pyautogui.locateOnScreen("failed_connect.png", confidence=0.8) != None) or ( pyautogui.locateOnScreen("failed_server_c.png", confidence=0.8) != None):
             sleep(random.uniform(0, 2))
             pyautogui.moveTo(pyautogui.locateOnScreen("failed_connect.png", confidence=0.8))
+            pyautogui.moveTo(pyautogui.locateOnScreen("failed_server_c.png", confidence=0.8))
             pyautogui.move(random.randrange(-5, 5), random.randrange(-5, 5))
             pyautogui.leftClick()
             return
@@ -116,8 +121,9 @@ def btdb():
             print('got rid of pesky chest screen', 'Current time:',datetime.today().strftime("%I:%M:%S %p"))
             return
         while True:
-            if pyautogui.locateOnScreen("failed_connect.png", confidence=0.8) != None:
+            if (pyautogui.locateOnScreen("failed_connect.png", confidence=0.8) != None) or ( pyautogui.locateOnScreen("failed_server_c.png", confidence=0.8) != None):
                 pyautogui.moveTo(pyautogui.locateOnScreen("failed_connect.png", confidence=0.8))
+                pyautogui.moveTo(pyautogui.locateOnScreen("failed_server_c.png", confidence=0.8))
                 pyautogui.move(random.randrange(-5, 5), random.randrange(-5, 5))
                 pyautogui.leftClick()
                 return
@@ -134,8 +140,9 @@ def btdb():
                     print('got rid of pesky chest screen', 'Current time:',datetime.today().strftime("%I:%M:%S %p"))
                     return
                 while True:
-                    if pyautogui.locateOnScreen("failed_connect.png", confidence=0.8) != None:
+                    if (pyautogui.locateOnScreen("failed_connect.png", confidence=0.8) != None) or ( pyautogui.locateOnScreen("failed_server_c.png", confidence=0.8) != None):
                         pyautogui.moveTo(pyautogui.locateOnScreen("failed_connect.png", confidence=0.8))
+                        pyautogui.moveTo(pyautogui.locateOnScreen("failed_server_c.png", confidence=0.8))
                         pyautogui.move(random.randrange(-5, 5), random.randrange(-5, 5))
                         pyautogui.leftClick()
                         return
@@ -149,23 +156,24 @@ def btdb():
                         pyautogui.move(random.randrange(-5, 5), random.randrange(-5, 5))
                         pyautogui.leftClick()
                         if pyautogui.locateOnScreen("defooted.png", confidence=0.8) != None:
-                            if (pyautogui.locateOnScreen("chest.png", confidence=0.8) != None) or (pyautogui.locateOnScreen("battle_chest.png", confidence=0.8) != None):
+                            if (pyautogui.locateOnScreen("chest.png", confidence=0.95) != None) or (pyautogui.locateOnScreen("battle_chest.png", confidence=0.8) != None):
                                 pyautogui.moveTo(pyautogui.locateOnScreen("chest.png", confidence=0.9))
                                 pyautogui.moveTo(pyautogui.locateOnScreen("battle_chest.png", confidence=0.9))
-                                pyautogui.move(0, 440)
+                                pyautogui.move(0, 440, 6 + random.uniform(0, 3))
                                 pyautogui.move(random.randrange(-5, 5), random.randrange(-5, 5))
                                 pyautogui.leftClick()
                                 return
                         if pyautogui.locateOnScreen("victree.png", confidence=0.8) != None:
-                            if (pyautogui.locateOnScreen("chest.png", confidence=0.8) != None) or (pyautogui.locateOnScreen("battle_chest.png", confidence=0.8) != None):
+                            if (pyautogui.locateOnScreen("chest.png", confidence=0.95) != None) or (pyautogui.locateOnScreen("battle_chest.png", confidence=0.8) != None):
                                 pyautogui.moveTo(pyautogui.locateOnScreen("chest.png", confidence=0.9))
                                 pyautogui.moveTo(pyautogui.locateOnScreen("battle_chest.png", confidence=0.9))
-                                pyautogui.move(0, 440)
+                                pyautogui.move(0, 440, 6 + random.uniform(0, 3))
                                 pyautogui.move(random.randrange(-5, 5), random.randrange(-5, 5))
                                 pyautogui.leftClick()
                                 return
-                        if pyautogui.locateOnScreen("failed_connect.png", confidence=0.8) != None:
+                        if (pyautogui.locateOnScreen("failed_connect.png", confidence=0.8) != None) or ( pyautogui.locateOnScreen("failed_server_c.png", confidence=0.8) != None):
                             pyautogui.moveTo(pyautogui.locateOnScreen("failed_connect.png", confidence=0.8))
+                            pyautogui.moveTo(pyautogui.locateOnScreen("failed_server_c.png", confidence=0.8))
                             pyautogui.move(random.randrange(-5, 5), random.randrange(-5, 5))
                             pyautogui.leftClick()
                             return
@@ -178,23 +186,24 @@ def btdb():
                         while True:
                             sleep(2 + random.uniform(0, 2))
                             if pyautogui.locateOnScreen("defooted.png", confidence=0.8) != None:
-                                if (pyautogui.locateOnScreen("chest.png", confidence=0.8) != None) or (pyautogui.locateOnScreen("battle_chest.png", confidence=0.8) != None):
+                                if (pyautogui.locateOnScreen("chest.png", confidence=0.95) != None) or (pyautogui.locateOnScreen("battle_chest.png", confidence=0.8) != None):
                                     pyautogui.moveTo(pyautogui.locateOnScreen("chest.png", confidence=0.9))
                                     pyautogui.moveTo(pyautogui.locateOnScreen("battle_chest.png", confidence=0.9))
-                                    pyautogui.move(0, 440)
+                                    pyautogui.move(0, 440, 6 + random.uniform(0, 3))
                                     pyautogui.move(random.randrange(-5, 5), random.randrange(-5, 5))
                                     pyautogui.leftClick()
                                     return
                             if pyautogui.locateOnScreen("victree.png", confidence=0.8) != None:
-                                if (pyautogui.locateOnScreen("chest.png", confidence=0.8) != None) or (pyautogui.locateOnScreen("battle_chest.png", confidence=0.8) != None):
+                                if (pyautogui.locateOnScreen("chest.png", confidence=0.95) != None) or (pyautogui.locateOnScreen("battle_chest.png", confidence=0.8) != None):
                                     pyautogui.moveTo(pyautogui.locateOnScreen("chest.png", confidence=0.9))
                                     pyautogui.moveTo(pyautogui.locateOnScreen("battle_chest.png", confidence=0.9))
-                                    pyautogui.move(0, 440)
+                                    pyautogui.move(0, 440, 6 + random.uniform(0, 3))
                                     pyautogui.move(random.randrange(-5, 5), random.randrange(-5, 5))
                                     pyautogui.leftClick()
                                     return
-                            if pyautogui.locateOnScreen("failed_connect.png", confidence=0.8) != None:
+                            if (pyautogui.locateOnScreen("failed_connect.png", confidence=0.8) != None) or ( pyautogui.locateOnScreen("failed_server_c.png", confidence=0.8) != None):
                                 pyautogui.moveTo(pyautogui.locateOnScreen("failed_connect.png", confidence=0.8))
+                                pyautogui.moveTo(pyautogui.locateOnScreen("failed_server_c.png", confidence=0.8))
                                 pyautogui.move(random.randrange(-5, 5), random.randrange(-5, 5))
                                 pyautogui.leftClick()
                                 return
@@ -208,31 +217,33 @@ def btdb():
                                     pyautogui.leftClick()
                                     print('got rid of pesky chest screen', 'Current time:',datetime.today().strftime("%I:%M:%S %p"))
                                     return
-                                if pyautogui.locateOnScreen("failed_connect.png", confidence=0.8) != None:
+                                if (pyautogui.locateOnScreen("failed_connect.png", confidence=0.8) != None) or ( pyautogui.locateOnScreen("failed_server_c.png", confidence=0.8) != None):
                                     pyautogui.moveTo(pyautogui.locateOnScreen("failed_connect.png", confidence=0.8))
+                                    pyautogui.moveTo(pyautogui.locateOnScreen("failed_server_c.png", confidence=0.8))
                                     pyautogui.move(random.randrange(-5, 5), random.randrange(-5, 5))
                                     pyautogui.leftClick()
                                     return
                                 towerplace()
                                 while True:
-                                    if pyautogui.locateOnScreen("failed_connect.png", confidence=0.8) != None:
+                                    if (pyautogui.locateOnScreen("failed_connect.png", confidence=0.8) != None) or ( pyautogui.locateOnScreen("failed_server_c.png", confidence=0.8) != None):
                                         pyautogui.moveTo(pyautogui.locateOnScreen("failed_connect.png", confidence=0.8))
+                                        pyautogui.moveTo(pyautogui.locateOnScreen("failed_server_c.png", confidence=0.8))
                                         pyautogui.move(random.randrange(-5, 5), random.randrange(-5, 5))
                                         pyautogui.leftClick()
                                         return
                                     if pyautogui.locateOnScreen("defooted.png", confidence=0.8) != None:
-                                        if (pyautogui.locateOnScreen("chest.png", confidence=0.8) != None) or (pyautogui.locateOnScreen("battle_chest.png", confidence=0.8) != None):
+                                        if (pyautogui.locateOnScreen("chest.png", confidence=0.95) != None) or (pyautogui.locateOnScreen("battle_chest.png", confidence=0.8) != None):
                                             pyautogui.moveTo(pyautogui.locateOnScreen("chest.png", confidence=0.9))
                                             pyautogui.moveTo(pyautogui.locateOnScreen("battle_chest.png", confidence=0.9))
-                                            pyautogui.move(0, 440)
+                                            pyautogui.move(0, 440, 6 + random.uniform(0, 3))
                                             pyautogui.move(random.randrange(-5, 5), random.randrange(-5, 5))
                                             pyautogui.leftClick()
                                             return
                                     if pyautogui.locateOnScreen("victree.png", confidence=0.8) != None:
-                                        if (pyautogui.locateOnScreen("chest.png", confidence=0.8) != None) or (pyautogui.locateOnScreen("battle_chest.png", confidence=0.8) != None):
+                                        if (pyautogui.locateOnScreen("chest.png", confidence=0.95) != None) or (pyautogui.locateOnScreen("battle_chest.png", confidence=0.8) != None):
                                             pyautogui.moveTo(pyautogui.locateOnScreen("chest.png", confidence=0.9))
                                             pyautogui.moveTo(pyautogui.locateOnScreen("battle_chest.png", confidence=0.8))
-                                            pyautogui.move(0, 440)
+                                            pyautogui.move(0, 440, 6 + random.uniform(0, 3))
                                             pyautogui.move(random.randrange(-5, 5), random.randrange(-5, 5))
                                             pyautogui.leftClick()
                                             return
@@ -246,18 +257,17 @@ def btdb():
                                         while True:
                                             sleep(1 + random.uniform(0, 2))
                                             if pyautogui.locateOnScreen("defooted.png", confidence=0.8) != None:
-                                                if (pyautogui.locateOnScreen("chest.png", confidence=0.8) != None) or (pyautogui.locateOnScreen("battle_chest.png", confidence=0.8) != None):
+                                                if (pyautogui.locateOnScreen("chest.png", confidence=0.95) != None) or (pyautogui.locateOnScreen("battle_chest.png", confidence=0.8) != None):
                                                     pyautogui.moveTo(pyautogui.locateOnScreen("chest.png", confidence=0.9))
                                                     pyautogui.moveTo(pyautogui.locateOnScreen("battle_chest.png", confidence=0.9))
-                                                    pyautogui.move(0, 440)
+                                                    pyautogui.move(0, 440, 6 + random.uniform(0, 3))
                                                     pyautogui.move(random.randrange(-5, 5), random.randrange(-5, 5))
                                                     pyautogui.leftClick()
                                                     return
                                             if pyautogui.locateOnScreen("victree.png", confidence=0.8) != None:
-                                                if (pyautogui.locateOnScreen("chest.png", confidence=0.8) != None) or (pyautogui.locateOnScreen("battle_chest.png", confidence=0.8) != None):
+                                                if (pyautogui.locateOnScreen("chest.png", confidence=0.95) != None) or (pyautogui.locateOnScreen("battle_chest.png", confidence=0.8) != None):
                                                     pyautogui.moveTo(pyautogui.locateOnScreen("chest.png", confidence=0.9))
-                                                    pyautogui.moveTo(pyautogui.locateOnScreen("battle_chest.png", confidence=0.9))
-                                                    pyautogui.move(0, 440)
+                                                    pyautogui.move(0, 440, 6 + random.uniform(0, 3))
                                                     pyautogui.move(random.randrange(-5, 5), random.randrange(-5, 5))
                                                     pyautogui.leftClick()
                                                     return
@@ -268,11 +278,10 @@ def btdb():
                                                 pyautogui.leftClick()
                                                 while True:
                                                     sleep(2 + random.uniform(0, 2))
-                                                    if (pyautogui.locateOnScreen("chest.png", confidence=0.8) != None) or (pyautogui.locateOnScreen("battle_chest.png", confidence=0.8) != None):
+                                                    if (pyautogui.locateOnScreen("chest.png", confidence=0.95) != None) or (pyautogui.locateOnScreen("battle_chest.png", confidence=0.8) != None):
                                                         print('Clicked ok button', 'Current time:',datetime.today().strftime("%I:%M:%S %p"))
                                                         pyautogui.moveTo(pyautogui.locateOnScreen("chest.png",confidence=0.9))
-                                                        pyautogui.moveTo(pyautogui.locateOnScreen("chest.png",confidence=0.9))
-                                                        pyautogui.move(0, 440)
+                                                        pyautogui.move(0, 440, 6 + random.uniform(0, 3))
                                                         pyautogui.move(random.randrange(-5, 5), random.randrange(-5, 5))
                                                         pyautogui.leftClick()
                                                         sleep(2 + random.uniform(0, 2))
@@ -284,6 +293,7 @@ sleep(2)
 
 try:
     while True:
+        #print(pyautogui.locateOnScreen("Chests-full.png", confidence=0.8))
         #print('align')
         #sleep(2)
         #print(pyautogui.position())
@@ -296,17 +306,18 @@ try:
         #a = round((time.time()), 2)
         #print(datetime.today().strftime("%I:%M:%S %p"))
         #print(round((time.time() - a), 2))
-        pyautogui.keyDown('a')
+        pyautogui.keyDown('s')
         btdb()
         sleep(2 + random.uniform(0, 2))
 
+
 except KeyboardInterrupt:
-    pyautogui.keyUp('a')
+    pyautogui.keyUp('s')
     Time_since = time.time() - Time_started_UNIX_timecode
     print('\nThere have been {0} battles since {1}\n{2} Seconds have passed since starting the script'.format(Battles, Time_started, round(Time_since, 2)))
     print('KeyBoard interupt detected')
 except pyautogui.FailSafeException:
     Time_since = time.time() - Time_started_UNIX_timecode
     print('\nThere have been {0} battles since {1}\n{2} Seconds have passed since starting the script'.format(Battles, Time_started, round(Time_since, 2)))
-    print('Pyautogui failsafe detected, Press \'a\'')
+    print('Pyautogui failsafe detected, Press \'s\'')
 #
