@@ -91,11 +91,12 @@ def btdb():
     print('activated automater', 'Current time:',datetime.today().strftime("%I:%M:%S %p"))
 
     sleep(2 + random.uniform(0, 2))
-    if pyautogui.locateOnScreen("Chests-full.png", confidence=0.8) != None:
+    if (pyautogui.locateOnScreen("Chests-full.png", confidence=0.8) != None) or (pyautogui.locateOnScreen("Chests-full-LI.png", confidence=0.8) != None)
         pyautogui.moveTo(pyautogui.locateOnScreen("Chests-full.png", confidence=0.8))
+        pyautogui.moveTo(pyautogui.locateOnScreen("Chests-full-LI.png", confidence=0.8))
         pyautogui.move(random.randrange(-5, 5), random.randrange(-5, 5))
         pyautogui.leftClick()
-        pyautogui.move(60, 0)
+        pyautogui.move(120, 0, 3)
         print('got rid of pesky chest screen', 'Current time:',datetime.today().strftime("%I:%M:%S %p"))
         return
     elif pyautogui.locateOnScreen("fancybb.png", confidence=0.8) != None:
