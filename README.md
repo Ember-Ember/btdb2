@@ -22,7 +22,11 @@ XP RATES
 
 Druid;
 41350 Total XP
+
 9.85 Hours
+
 157 battles
+
 4197.9/hr
+
 263.3 xp/battle
