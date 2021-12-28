@@ -16,6 +16,8 @@ all timings and clicks are randomised so it should be practically undetectable.
 
 put the tower you want to level in the slot right next to the hero, it will also place your selected hero.
 
+In addition to the XP this script will also get you a fair amount of battle points and monkey money
+
 
 XP RATES
 =====================================
