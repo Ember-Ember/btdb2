@@ -15,3 +15,14 @@ BTDB2 window size reference;
 all timings and clicks are randomised so it should be practically undetectable.
 
 put the tower you want to level in the slot right next to the hero, it will also place your selected hero.
+
+
+XP RATES
+=====================================
+
+Druid;
+41350 Total XP
+9.85 Hours
+157 battles
+4197.9/hr
+263.3 xp/battle
