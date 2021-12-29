@@ -22,6 +22,20 @@ In addition to the XP this script will also get you a fair amount of battle poin
 XP RATES
 =====================================
 
+Bomb;
+
+33770 Total XP
+
+7.62 Hours
+
+127 Battles
+
+4431/hr
+
+265.9 xp/battle
+
+
+
 Druid;
 
 41350 Total XP
