@@ -121,6 +121,7 @@ def btdb():
         pyautogui.moveTo(pyautogui.locateOnScreen("fancybb.png", confidence=0.8))
         pyautogui.move(random.randrange(-5, 5), random.randrange(-5, 5))
         pyautogui.leftClick()
+        looped = 0
         global Battles
         global Time_started_UNIX_timecode
         Time_since = time.time() - Time_started_UNIX_timecode
@@ -157,6 +158,12 @@ def btdb():
             print('got rid of pesky chest screen', 'Current time:',datetime.today().strftime("%I:%M:%S %p"))
             return
         while True:
+            if looped >= 13:
+                pyautogui.moveTo(pyautogui.locateOnScreen("cancel.png", confidence=0.8))
+                pyautogui.move(random.randrange(-5, 5), random.randrange(-5, 5))
+                pyautogui.leftClick()
+                return 
+            looped += 1
             if (pyautogui.locateOnScreen("failed_connect.png", confidence=0.8) != None) or ( pyautogui.locateOnScreen("failed_server_c.png", confidence=0.8) != None):
                 pyautogui.moveTo(pyautogui.locateOnScreen("failed_connect.png", confidence=0.8))
                 pyautogui.moveTo(pyautogui.locateOnScreen("failed_server_c.png", confidence=0.8))
